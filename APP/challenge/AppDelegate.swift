@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
 
-        let api = WASAPI(environment: Environment.production)
-        let viewController = CPFViewController.create(with: CPFViewModel(api: api))
+        let viewController = CPFViewController.create(with: CPFViewModel())
         let navigationController = UINavigationController(rootViewController: viewController)
 
         window?.rootViewController = navigationController

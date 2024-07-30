@@ -2,7 +2,7 @@
 //  UIViewExtensions.swift
 //  challenge
 //
-//  Created by Wagner Sales on 29/01/24.
+//  Created by Wagner Sales
 //
 
 import UIKit
@@ -20,3 +20,4 @@ extension UIView {
         ])
     }
 }
+

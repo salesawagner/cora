@@ -2,7 +2,7 @@
 //  UIColorExtensions.swift
 //  challenge
 //
-//  Created by Wagner Sales on 19/02/24.
+//  Created by Wagner Sales
 //
 
 import UIKit

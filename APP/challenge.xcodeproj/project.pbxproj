@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,9 +24,24 @@
 		9A662310EB98699B52D4C8B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243356E12739A4D68A2E238E /* LaunchScreen.storyboard */; };
 		9A8B3D72381DB8871C7986B8 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A646AC722AE91CA25AA1E2 /* ListViewControllerTests.swift */; };
 		9F3B6AA034CBA27F53FA3695 /* Pods_challengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F0C11A5648F99904FA78FBF /* Pods_challengeTests.framework */; };
+		A7628F6F2C56FFD800659EE1 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F6E2C56FFD800659EE1 /* UIFontExtensions.swift */; };
+		A7628F762C5704A400659EE1 /* PasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F732C5704A400659EE1 /* PasswordProtocols.swift */; };
+		A7628F772C5704A400659EE1 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F742C5704A400659EE1 /* PasswordViewController.swift */; };
+		A7628F782C5704A400659EE1 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F752C5704A400659EE1 /* PasswordViewModel.swift */; };
+		A7628F7C2C570A5100659EE1 /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F7B2C570A5100659EE1 /* AuthRequest.swift */; };
+		A7628F7E2C570AA500659EE1 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F7D2C570AA500659EE1 /* AuthResponse.swift */; };
+		A7628F9B2C57C7CE00659EE1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F942C57C7CE00659EE1 /* ListViewController.swift */; };
+		A7628F9C2C57C7CE00659EE1 /* ListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F952C57C7CE00659EE1 /* ListProtocols.swift */; };
+		A7628F9E2C57C7CE00659EE1 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F972C57C7CE00659EE1 /* ListViewModel.swift */; };
+		A7628F9F2C57C7CE00659EE1 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F992C57C7CE00659EE1 /* ListCell.swift */; };
+		A7628FA02C57C7CE00659EE1 /* ListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628F9A2C57C7CE00659EE1 /* ListRowViewModel.swift */; };
+		A7628FA22C57C85000659EE1 /* WASTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628FA12C57C85000659EE1 /* WASTableViewController.swift */; };
+		A7628FA42C57C92300659EE1 /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628FA32C57C92300659EE1 /* ListRequest.swift */; };
+		A7628FA62C57C94D00659EE1 /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628FA52C57C94D00659EE1 /* ListResponse.swift */; };
+		A7628FA82C580DD800659EE1 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7628FA72C580DD800659EE1 /* UIViewExtensions.swift */; };
+		A7A1EA7F2C59966000DB7718 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1EA7E2C59966000DB7718 /* DateExtensions.swift */; };
+		A7AA7E522C595B94009DF9E7 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA7E512C595B94009DF9E7 /* DoubleExtensions.swift */; };
 		A9DE95317E7975A146C74387 /* ExchangesViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1298227E5AC1212C56993F5E /* ExchangesViewControllerSpy.swift */; };
-		B346C0E71966480D43BB333A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B580344F1CA5966A390547A /* UIViewExtensions.swift */; };
-		C18513E544DC68E5B364FE70 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E68490AAB2283EFF437A3 /* UIImageViewExtensions.swift */; };
 		C7418185A281AA5807AF3FF2 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512C7C54B5D9064C8891DE6 /* UIColorExtensions.swift */; };
 		CF436607E687B5DBACA9BE85 /* CPFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C2982A161BA42A2937AB99 /* CPFViewModel.swift */; };
 		E1C22B9A89AEF6B9279A5D6D /* ExchangesViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3272FD5C214691CE0D08C073 /* ExchangesViewModelSpy.swift */; };
@@ -51,7 +66,6 @@
 		12F63258320BA3CC9F59B93A /* challenge.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A246ADB20CFDF70859310ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C71C214ED56A5B442ACF2C4 /* CPFExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFExtensions.swift; sourceTree = "<group>"; };
-		321E68490AAB2283EFF437A3 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		3272FD5C214691CE0D08C073 /* ExchangesViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewModelSpy.swift; sourceTree = "<group>"; };
 		34209B378C6E7602D8D5B73B /* WASAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WASAPIMock.swift; sourceTree = "<group>"; };
 		353D5F4DC65499D1F413CD25 /* Pods-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge.debug.xcconfig"; path = "Target Support Files/Pods-challenge/Pods-challenge.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,8 +81,24 @@
 		6667AE3D60CC3D26897300E2 /* CPFProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFProtocols.swift; sourceTree = "<group>"; };
 		684AE9AB8A3BAFEB18E40B06 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		68C2982A161BA42A2937AB99 /* CPFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFViewModel.swift; sourceTree = "<group>"; };
-		6B580344F1CA5966A390547A /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		82F305E59C84A1A5886E6BFF /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
+		A7628F6E2C56FFD800659EE1 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		A7628F732C5704A400659EE1 /* PasswordProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordProtocols.swift; sourceTree = "<group>"; };
+		A7628F742C5704A400659EE1 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		A7628F752C5704A400659EE1 /* PasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		A7628F7B2C570A5100659EE1 /* AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
+		A7628F7D2C570AA500659EE1 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		A7628F942C57C7CE00659EE1 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		A7628F952C57C7CE00659EE1 /* ListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProtocols.swift; sourceTree = "<group>"; };
+		A7628F972C57C7CE00659EE1 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A7628F992C57C7CE00659EE1 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		A7628F9A2C57C7CE00659EE1 /* ListRowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRowViewModel.swift; sourceTree = "<group>"; };
+		A7628FA12C57C85000659EE1 /* WASTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WASTableViewController.swift; sourceTree = "<group>"; };
+		A7628FA32C57C92300659EE1 /* ListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		A7628FA52C57C94D00659EE1 /* ListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
+		A7628FA72C580DD800659EE1 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		A7A1EA7E2C59966000DB7718 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		A7AA7E512C595B94009DF9E7 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		AB53C7C74B67B86F5DFE5F2F /* Pods-challengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challengeTests.debug.xcconfig"; path = "Target Support Files/Pods-challengeTests/Pods-challengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACF65B7870295F7E52F642BF /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B05FC68FFF0CF66EAD8B2A6D /* WASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WASViewController.swift; sourceTree = "<group>"; };
@@ -113,8 +143,10 @@
 				1C71C214ED56A5B442ACF2C4 /* CPFExtensions.swift */,
 				5512C7C54B5D9064C8891DE6 /* UIColorExtensions.swift */,
 				82F305E59C84A1A5886E6BFF /* UIEdgeInsetsExtensions.swift */,
-				321E68490AAB2283EFF437A3 /* UIImageViewExtensions.swift */,
-				6B580344F1CA5966A390547A /* UIViewExtensions.swift */,
+				A7628F6E2C56FFD800659EE1 /* UIFontExtensions.swift */,
+				A7628FA72C580DD800659EE1 /* UIViewExtensions.swift */,
+				A7AA7E512C595B94009DF9E7 /* DoubleExtensions.swift */,
+				A7A1EA7E2C59966000DB7718 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -133,6 +165,7 @@
 		374176976DEE7B980BE55DB7 /* challenge */ = {
 			isa = PBXGroup;
 			children = (
+				A7628F7A2C570A4500659EE1 /* API */,
 				1A246ADB20CFDF70859310ED /* AppDelegate.swift */,
 				426143FFD3FE63590BBF47A8 /* Assets.xcassets */,
 				0F5C84DBFF090DE3200E946C /* Info.plist */,
@@ -170,6 +203,7 @@
 				684AE9AB8A3BAFEB18E40B06 /* Environment.swift */,
 				DCD85FBBC34D10055E3EAD69 /* WASErrorView.swift */,
 				B05FC68FFF0CF66EAD8B2A6D /* WASViewController.swift */,
+				A7628FA12C57C85000659EE1 /* WASTableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -202,6 +236,48 @@
 			path = CPF;
 			sourceTree = "<group>";
 		};
+		A7628F722C5704A400659EE1 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				A7628F732C5704A400659EE1 /* PasswordProtocols.swift */,
+				A7628F742C5704A400659EE1 /* PasswordViewController.swift */,
+				A7628F752C5704A400659EE1 /* PasswordViewModel.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		A7628F7A2C570A4500659EE1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A7628F7B2C570A5100659EE1 /* AuthRequest.swift */,
+				A7628F7D2C570AA500659EE1 /* AuthResponse.swift */,
+				A7628FA32C57C92300659EE1 /* ListRequest.swift */,
+				A7628FA52C57C94D00659EE1 /* ListResponse.swift */,
+			);
+			name = API;
+			path = ../../../digio/APP/challenge/API;
+			sourceTree = "<group>";
+		};
+		A7628F932C57C7CE00659EE1 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A7628F942C57C7CE00659EE1 /* ListViewController.swift */,
+				A7628F952C57C7CE00659EE1 /* ListProtocols.swift */,
+				A7628F972C57C7CE00659EE1 /* ListViewModel.swift */,
+				A7628F982C57C7CE00659EE1 /* Views */,
+				A7628F9A2C57C7CE00659EE1 /* ListRowViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		A7628F982C57C7CE00659EE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7628F992C57C7CE00659EE1 /* ListCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B3DE36F2FAB281FA31AF62D6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +286,6 @@
 				AB53C7C74B67B86F5DFE5F2F /* Pods-challengeTests.debug.xcconfig */,
 				51B77D9EE9BE667AF0BC0939 /* Pods-challengeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -244,6 +319,8 @@
 		FE227FC92538EA23F02D6182 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A7628F932C57C7CE00659EE1 /* List */,
+				A7628F722C5704A400659EE1 /* Password */,
 				A36F13DABC2420B06D7AC1D7 /* CPF */,
 			);
 			path = Modules;
@@ -423,16 +500,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7628FA62C57C94D00659EE1 /* ListResponse.swift in Sources */,
 				1941AAFD07D0E0BE8C768C68 /* AppDelegate.swift in Sources */,
+				A7628FA02C57C7CE00659EE1 /* ListRowViewModel.swift in Sources */,
 				73824EE7EAC2308EC35C0930 /* CPFExtensions.swift in Sources */,
 				707F89BC15DAF0992E7342EC /* CPFProtocols.swift in Sources */,
+				A7A1EA7F2C59966000DB7718 /* DateExtensions.swift in Sources */,
+				A7628F9C2C57C7CE00659EE1 /* ListProtocols.swift in Sources */,
 				6D92AB12183D53603ADD6CF0 /* CPFViewController.swift in Sources */,
+				A7628F7E2C570AA500659EE1 /* AuthResponse.swift in Sources */,
+				A7628F7C2C570A5100659EE1 /* AuthRequest.swift in Sources */,
+				A7628F762C5704A400659EE1 /* PasswordProtocols.swift in Sources */,
 				CF436607E687B5DBACA9BE85 /* CPFViewModel.swift in Sources */,
+				A7628F9E2C57C7CE00659EE1 /* ListViewModel.swift in Sources */,
+				A7628F9B2C57C7CE00659EE1 /* ListViewController.swift in Sources */,
 				4EC8243188811042E5C96757 /* Environment.swift in Sources */,
 				C7418185A281AA5807AF3FF2 /* UIColorExtensions.swift in Sources */,
+				A7628F9F2C57C7CE00659EE1 /* ListCell.swift in Sources */,
+				A7628FA82C580DD800659EE1 /* UIViewExtensions.swift in Sources */,
 				88A0DF395094BBB3362D813C /* UIEdgeInsetsExtensions.swift in Sources */,
-				C18513E544DC68E5B364FE70 /* UIImageViewExtensions.swift in Sources */,
-				B346C0E71966480D43BB333A /* UIViewExtensions.swift in Sources */,
+				A7628F772C5704A400659EE1 /* PasswordViewController.swift in Sources */,
+				A7628FA42C57C92300659EE1 /* ListRequest.swift in Sources */,
+				A7628F6F2C56FFD800659EE1 /* UIFontExtensions.swift in Sources */,
+				A7628FA22C57C85000659EE1 /* WASTableViewController.swift in Sources */,
+				A7AA7E522C595B94009DF9E7 /* DoubleExtensions.swift in Sources */,
+				A7628F782C5704A400659EE1 /* PasswordViewModel.swift in Sources */,
 				54CDDAB6DA0EBCB9A4FEB870 /* WASErrorView.swift in Sources */,
 				98B3448D707CD453FBB9E826 /* WASViewController.swift in Sources */,
 			);

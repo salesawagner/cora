@@ -10,14 +10,7 @@ import API
 final class CPFViewModel {
     // MARK: Properties
 
-    private var api: APIClient
     var viewController: CPFOutputProtocol?
-
-    // MARK: Inits
-
-    init(api: APIClient = WASAPI(environment: Environment.production)) {
-        self.api = api
-    }
 }
 
 // MARK: - CPFInputProtocol
@@ -25,7 +18,11 @@ final class CPFViewModel {
 extension CPFViewModel: CPFInputProtocol {
     func didTapActionButton(cpf: String) {
         if cpf.isValidCPF {
-            // TODO: próxima tela
+            let passwordViewController = PasswordViewController.create(with: PasswordViewModel(cpf: cpf))
+            (viewController as? UIViewController)?.navigationController?.pushViewController(
+                passwordViewController,
+                animated: true
+            )
         } else {
             viewController?.failure()
         }

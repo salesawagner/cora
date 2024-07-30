@@ -3,4 +3,117 @@
    uuid = "12FE7BEA-AB16-4F36-BBBB-5725A38D2BD3"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F46294E8-569B-45E9-A11B-31C5D54BC9CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../API/API/Sources/WASAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "parse(_:data:response:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F46294E8-569B-45E9-A11B-31C5D54BC9CA - 9242a8bee1623228"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "API.WASAPI.parse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: API.APIRequest&gt;(_: &#x3c4;_0_0, data: Swift.Optional&lt;Foundation.Data&gt;, response: Swift.Optional&lt;__C.NSURLResponse&gt;, completion: (Swift.Result&lt;&#x3c4;_0_0.Response, API.APIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "API"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salesawagner/Documents/Projects/Was/cora/API/API/Sources/WASAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "1726">
+               </Location>
+               <Location
+                  uuid = "F46294E8-569B-45E9-A11B-31C5D54BC9CA - 9242a8bee1623228"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "API.WASAPI.parse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: API.APIRequest&gt;(_: &#x3c4;_0_0, data: Swift.Optional&lt;Foundation.Data&gt;, response: Swift.Optional&lt;__C.NSURLResponse&gt;, completion: (Swift.Result&lt;&#x3c4;_0_0.Response, API.APIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "API"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salesawagner/Documents/Projects/Was/cora/API/API/Sources/WASAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "2072">
+               </Location>
+               <Location
+                  uuid = "F46294E8-569B-45E9-A11B-31C5D54BC9CA - 9242a8bee1623228"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "API.WASAPI.parse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: API.APIRequest&gt;(_: &#x3c4;_0_0, data: Swift.Optional&lt;Foundation.Data&gt;, response: Swift.Optional&lt;__C.NSURLResponse&gt;, completion: (Swift.Result&lt;&#x3c4;_0_0.Response, API.APIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "API"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salesawagner/Documents/Projects/Was/cora/API/API/Sources/WASAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "2265">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBDB29BE-568A-437C-91AD-91545582B28B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../API/API/Sources/WASAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "parse(_:data:response:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DBDB29BE-568A-437C-91AD-91545582B28B - 9242a8bee1623587"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "API.WASAPI.parse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: API.APIRequest&gt;(_: &#x3c4;_0_0, data: Swift.Optional&lt;Foundation.Data&gt;, response: Swift.Optional&lt;__C.NSURLResponse&gt;, completion: (Swift.Result&lt;&#x3c4;_0_0.Response, API.APIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "API"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salesawagner/Documents/Projects/Was/cora/API/API/Sources/WASAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "2541">
+               </Location>
+               <Location
+                  uuid = "DBDB29BE-568A-437C-91AD-91545582B28B - 9242a8bee1623587"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "API.WASAPI.parse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: API.APIRequest&gt;(_: &#x3c4;_0_0, data: Swift.Optional&lt;Foundation.Data&gt;, response: Swift.Optional&lt;__C.NSURLResponse&gt;, completion: (Swift.Result&lt;&#x3c4;_0_0.Response, API.APIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "API"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salesawagner/Documents/Projects/Was/cora/API/API/Sources/WASAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "2585">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

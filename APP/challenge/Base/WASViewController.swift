@@ -28,7 +28,15 @@ class WASViewController: UIViewController {
     }
 
     func setupNavigationController() {
-        navigationController?.navigationBar.isTranslucent = false
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(r: 240, g: 244, b: 248, a: 1)
+        appearance.titleTextAttributes = [
+            .font: UIFont.preferredFont(forTextStyle: .footnote)
+        ]
+
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 
     func setupActivityIndicator() {

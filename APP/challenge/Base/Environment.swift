@@ -22,7 +22,7 @@ final class Environment: APIEnvironment {
 extension Environment {
     static var local = Environment(type: .local)
     static var production = Environment(
-        domainURL: URL(string: "https://7hgi9vtkdc.execute-api.sa-east-1.amazonaws.com/sandbox/"),
+        domainURL: URL(string: "https://api.challenge.stage.cora.com.br/challenge/"),
         type: .production
     )
 }

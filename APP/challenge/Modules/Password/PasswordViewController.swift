@@ -1,5 +1,5 @@
 //
-//  CPFViewController.swift
+//  PasswordViewController.swift
 //  challenge
 //
 //  Created by Wagner Sales
@@ -7,14 +7,13 @@
 
 import UIKit
 
-final class CPFViewController: WASViewController {
+final class PasswordViewController: WASViewController {
     // MARK: Properties
 
-    var viewModel: CPFInputProtocol
+    var viewModel: PasswordInputProtocol
 
-    let welcomeLabel = UILabel()
-    let CPFLabel = UILabel()
-    let CPFTextField = UITextField()
+    let passwordLabel = UILabel()
+    let passwordTextField = UITextField()
     let errorLabel = UILabel()
     let actionButton = UIButton(type: .system)
 
@@ -22,7 +21,7 @@ final class CPFViewController: WASViewController {
 
     // MARK: Constructors
 
-    private init(viewModel: CPFInputProtocol) {
+    private init(viewModel: PasswordInputProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,8 +31,8 @@ final class CPFViewController: WASViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    static func create(with viewModel: CPFInputProtocol) -> CPFViewController {
-        let viewController = CPFViewController(viewModel: viewModel)
+    static func create(with viewModel: PasswordInputProtocol) -> PasswordViewController {
+        let viewController = PasswordViewController(viewModel: viewModel)
         viewController.viewModel.viewController = viewController
         return viewController
     }
@@ -52,7 +51,7 @@ final class CPFViewController: WASViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        CPFTextField.becomeFirstResponder()
+        passwordTextField.becomeFirstResponder()
     }
 
     deinit {
@@ -62,8 +61,7 @@ final class CPFViewController: WASViewController {
     override func setupUI() {
         super.setupUI()
         title = "Login Cora"
-        setupWelcomeLabel()
-        setupCPFLabel()
+        setupPasswordLabel()
         setupTextField()
         setupErrorLabel()
         setupStackView()
@@ -72,30 +70,23 @@ final class CPFViewController: WASViewController {
 
     // MARK: Setups
 
-    private func setupWelcomeLabel() {
-        welcomeLabel.text = "Bem-vindo de volta!"
-        welcomeLabel.textColor = .black
-        welcomeLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        welcomeLabel.adjustsFontForContentSizeCategory = true
-    }
-
-    private func setupCPFLabel() {
-        CPFLabel.text = "Qual seu CPF?"
-        CPFLabel.textColor = .black
-        CPFLabel.font = UIFont.preferredFont(forTextStyle: .title3).bold()
-        CPFLabel.adjustsFontForContentSizeCategory = true
+    private func setupPasswordLabel() {
+        passwordLabel.text = "Digite sua senha de acesso"
+        passwordLabel.textColor = .black
+        passwordLabel.font = UIFont.preferredFont(forTextStyle: .title3).bold()
+        passwordLabel.adjustsFontForContentSizeCategory = true
     }
 
     private func setupTextField() {
-        CPFTextField.font = UIFont.preferredFont(forTextStyle: .title3)
-        CPFTextField.backgroundColor = .clear
-        CPFTextField.keyboardType = .numberPad
-        CPFTextField.delegate = self
-        CPFTextField.addTarget(self, action: #selector(CPFChanged), for: .editingChanged)
+        passwordTextField.font = UIFont.preferredFont(forTextStyle: .title3)
+        passwordTextField.backgroundColor = .clear
+        passwordTextField.keyboardType = .numberPad
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.addTarget(self, action: #selector(passwordChanged), for: .editingChanged)
     }
 
     private func setupErrorLabel() {
-        errorLabel.text = "CPF inválido"
+        errorLabel.text = "Password inválido"
         errorLabel.font = .systemFont(ofSize: 14)
         errorLabel.textColor = .red
         errorLabel.isHidden = true
@@ -106,8 +97,7 @@ final class CPFViewController: WASViewController {
         labelsStackView.axis = .vertical
         labelsStackView.spacing = 16
 
-        labelsStackView.addArrangedSubview(welcomeLabel)
-        labelsStackView.addArrangedSubview(CPFLabel)
+        labelsStackView.addArrangedSubview(passwordLabel)
 
         let mainStackView = UIStackView()
         mainStackView.axis = .vertical
@@ -115,7 +105,7 @@ final class CPFViewController: WASViewController {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
 
         mainStackView.addArrangedSubview(labelsStackView)
-        mainStackView.addArrangedSubview(CPFTextField)
+        mainStackView.addArrangedSubview(passwordTextField)
         mainStackView.addArrangedSubview(errorLabel)
 
         view.addSubview(mainStackView)
@@ -176,50 +166,22 @@ final class CPFViewController: WASViewController {
     }
 
     @objc private func didTapActionButton() {
-        guard let cpf = CPFTextField.text else { return }
-        viewModel.didTapActionButton(cpf: cpf)
+        guard let password = passwordTextField.text else { return }
+        viewModel.didTapActionButton(password: password)
     }
 
-    @objc func CPFChanged() {
-        actionButton.isEnabled = !(CPFTextField.text?.isEmpty ?? true)
-    }
-}
-
-extension CPFViewController: UITextFieldDelegate {
-    func textField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String
-    ) -> Bool {
-        errorLabel.isHidden = true
-        var appendString = ""
-
-        if range.length == 0 {
-            switch range.location {
-            case 3:
-                appendString = "."
-            case 7:
-                appendString = "."
-            case 11:
-                appendString = "-"
-            default:
-                break
-            }
-        }
-
-        textField.text?.append(appendString)
-
-        if (textField.text?.count)! > 13 && range.length == 0 {
-            return false
-        }
-
-        return true
+    @objc func passwordChanged() {
+        actionButton.isEnabled = !(passwordTextField.text?.isEmpty ?? true)
     }
 }
 
-// MARK: - CPFOutnputProtocol
+// MARK: - PasswordOutnputProtocol
 
-extension CPFViewController: CPFOutputProtocol {
+extension PasswordViewController: PasswordOutputProtocol {
+    func startLoading() {
+        actionButton.configuration?.showsActivityIndicator = true
+    }
+
     func failure() {
         errorLabel.isHidden = false
     }

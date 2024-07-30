@@ -10,6 +10,7 @@ import Foundation
 public class WASAPI: APIClient {
     // MARK: Private Properties
 
+    public static var token: String?
     private var environment: APIEnvironment
     private let session = URLSession(configuration: .default)
 
@@ -69,6 +70,11 @@ public class WASAPI: APIClient {
 
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.addValue("da1d7721a93da94b3813310ebbcd472d", forHTTPHeaderField: "apikey")
+
+        if let token = WASAPI.token {
+            urlRequest.addValue(token, forHTTPHeaderField: "token")
+        }
 
         return urlRequest
     }
@@ -101,6 +107,9 @@ public class WASAPI: APIClient {
             let decoder = JSONDecoder()
             let response = try decoder.httpRequest(request: request, data: data)
             completion(.success(response))
+            if let str = String(data: data, encoding: .utf8) {
+                print("Successfully decoded: \(str)")
+            }
         } catch let decodingError as DecodingError {
             let failure = APIError.decoding(error: decodingError)
             completion(.failure(failure))
@@ -120,6 +129,7 @@ public class WASAPI: APIClient {
         }
 
         let urlRequest = prepareRequest(request, endpoint: endpoint)
+        print(urlRequest.cURL(pretty: true))
 
         dataTask(urlRequest: urlRequest) { [weak self] result in
             switch result {
