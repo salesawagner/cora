@@ -124,7 +124,7 @@ final class PasswordViewController: WASViewController {
         configuration.cornerStyle = .medium
 
         actionButton.configuration = configuration
-        actionButton.isEnabled = true
+        actionButton.isEnabled = false
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
 
@@ -173,7 +173,12 @@ final class PasswordViewController: WASViewController {
     }
 
     @objc private func passwordChanged() {
-        actionButton.isEnabled = !(passwordTextField.text?.isEmpty ?? true)
+        guard let password = passwordTextField.text, password.count >= 6 else {
+            actionButton.isEnabled = false
+            return
+        }
+
+        actionButton.isEnabled = true
     }
 }
 

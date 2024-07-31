@@ -183,7 +183,12 @@ final class CPFViewController: WASViewController {
     }
 
     @objc private func CPFChanged() {
-        actionButton.isEnabled = !(CPFTextField.text?.isEmpty ?? true)
+        guard let cpf = CPFTextField.text, cpf.isValidCPF else {
+            actionButton.isEnabled = false
+            return
+        }
+
+        actionButton.isEnabled = true
     }
 }
 
