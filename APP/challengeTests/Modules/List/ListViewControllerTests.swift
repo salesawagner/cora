@@ -2,7 +2,7 @@
 //  ListViewControllerTests.swift
 //  challengeTests
 //
-//  Created by Wagner Sales on 30/01/24.
+//  Created by Wagner Sales
 //
 
 import XCTest
@@ -35,7 +35,7 @@ final class ListViewControllerTests: XCTestCase {
 
     func test_didTapReloadButton_shouldReceiveCorrectMessages() {
         let (sut, viewModelSpy) = makeSUT()
-        viewModelSpy.rows = .mock
+        viewModelSpy.sections = .mock
         loadView(sut: sut)
 
         sut.didTapReloadButton()
@@ -44,7 +44,7 @@ final class ListViewControllerTests: XCTestCase {
 
     func test_pullToRefresh_shouldReceiveCorrectMessages() {
         let (sut, viewModelSpy) = makeSUT()
-        viewModelSpy.rows = .mock
+        viewModelSpy.sections = .mock
         loadView(sut: sut)
 
         sut.pullToRefresh()

@@ -71,6 +71,7 @@
 		A669FCC19FBD20E11A0A0974 /* APIHTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHTTPMethod.swift; sourceTree = "<group>"; };
 		A74C89192D2165CBF0A5D5B8 /* API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7628F832C57484700659EE1 /* URLRequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
+		A7A1EA982C5A970B00DB7718 /* ListRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListRequest.json; sourceTree = "<group>"; };
 		A9B601439F6F3689E519126D /* APITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = APITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFE0AB0FAA41C1769BDF36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B7E84AFDDC0BFFA2C71555FC /* AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		3FDF7EA67722600D30D6FEC8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1EA982C5A970B00DB7718 /* ListRequest.json */,
 				178E62691ED68001BA58F95B /* AuthRequest.json */,
 			);
 			path = Mocks;

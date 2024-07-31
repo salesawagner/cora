@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  DetailsViewController.swift
 //  challenge
 //
 //  Created by Wagner Sales
@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class ListViewController: WASViewController {
+final class DetailsViewController: WASViewController {
     // MARK: Properties
 
-    var viewModel: ListInputProtocol
+    var viewModel: DetailsInputProtocol
 
     let refreshControl = UIRefreshControl()
     let tableView = UITableView(frame: .zero, style: .plain)
@@ -18,7 +18,7 @@ final class ListViewController: WASViewController {
 
     // MARK: Constructors
 
-    private init(viewModel: ListInputProtocol) {
+    private init(viewModel: DetailsInputProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,8 +28,8 @@ final class ListViewController: WASViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    static func create(with viewModel: ListInputProtocol) -> ListViewController {
-        let viewController = ListViewController(viewModel: viewModel)
+    static func create(with viewModel: DetailsInputProtocol) -> DetailsViewController {
+        let viewController = DetailsViewController(viewModel: viewModel)
         viewController.viewModel.viewController = viewController
         return viewController
     }
@@ -43,14 +43,9 @@ final class ListViewController: WASViewController {
 
     override func setupUI() {
         super.setupUI()
-        title = "Extrato"
+        title = "Detalhes da transferência"
         setupRefreshControl()
         setupTableView()
-    }
-
-    override func setupNavigationController() {
-        super.setupNavigationController()
-        navigationItem.setHidesBackButton(true, animated: true)
     }
 
     func setupTableView() {
@@ -63,19 +58,19 @@ final class ListViewController: WASViewController {
         tableView.separatorColor = .clear
 
         tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.identifier)
+        tableView.register(DetailsIconCell.self, forCellReuseIdentifier: DetailsIconCell.identifier)
+        tableView.register(DetailsTitleValueCell.self, forCellReuseIdentifier: DetailsTitleValueCell.identifier)
+        tableView.register(DetailsDescriptionCell.self, forCellReuseIdentifier: DetailsDescriptionCell.identifier)
+        tableView.register(DetailsRecipientCell.self, forCellReuseIdentifier: DetailsRecipientCell.identifier)
 
         tableView.fill(on: view)
     }
 
-    // MARK: Internal Methods
+    // MARK: Private Methods
 
-    @objc func pullToRefresh() {
+    @objc private func pullToRefresh() {
         viewModel.pullToRefresh()
     }
-
-    // MARK: Private Methods
 
     private func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
@@ -96,56 +91,56 @@ final class ListViewController: WASViewController {
 
 // MARK: - UITableViewDataSource
 
-extension ListViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.sections.count
-    }
-
+extension DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.sections[section].rows.count
+        viewModel.rows.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = viewModel.sections[indexPath.section].rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell
-        cell?.setup(with: row)
+        var cell: UITableViewCell?
+        switch viewModel.rows[indexPath.row] {
+        case .icon(let iconNamed, let title):
+            let iconCell = tableView.dequeueReusableCell(withIdentifier: DetailsIconCell.identifier) as? DetailsIconCell
+            iconCell?.setup(iconNamed: iconNamed, title: title)
+            cell = iconCell
+
+        case .amount(let title, let value), .date(let title, let value):
+            let titleValueCell = tableView.dequeueReusableCell(
+                withIdentifier: DetailsTitleValueCell.identifier
+            ) as? DetailsTitleValueCell
+            titleValueCell?.setup(title: title, value: value)
+            cell = titleValueCell
+
+        case .description(let title, let value):
+            let descriptionCell = tableView.dequeueReusableCell(
+                withIdentifier: DetailsDescriptionCell.identifier
+            ) as? DetailsDescriptionCell
+            descriptionCell?.setup(title: title, value: value)
+            cell = descriptionCell
+        
+        case .recipient(let title, let bankName, let documentNumber, let name, let account):
+            let descriptionCell = tableView.dequeueReusableCell(
+                withIdentifier: DetailsRecipientCell.identifier
+            ) as? DetailsRecipientCell
+            descriptionCell?.setup(title: title, bankName: bankName, documentNumber: documentNumber, name: name, account: account)
+            cell = descriptionCell
+        }
 
         return cell ?? UITableViewCell()
     }
 }
 
-// MARK: - UITableViewDelegate
-
-extension ListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = .init(r: 240, g: 244, b: 248)
-
-        let label = UILabel()
-        label.text = viewModel.sections[section].date
-        label.font = .preferredFont(forTextStyle: .caption1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.fill(on: view, insets: .init(top: 6, left: 24, bottom: 6, right: 24))
-
-        return view
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRow(indexPath: indexPath)
-    }
-}
-
 // MARK: - WASErrorViewDelegate
 
-extension ListViewController: WASErrorViewDelegate {
+extension DetailsViewController: WASErrorViewDelegate {
     func didTapReloadButton() {
         viewModel.didTapReload()
     }
 }
 
-// MARK: - ListOutnputProtocol
+// MARK: - DetailsOutnputProtocol
 
-extension ListViewController: ListOutputProtocol {
+extension DetailsViewController: DetailsOutputProtocol {
     func startLoading() {
         activityIndicator.startAnimating()
         UIView.animate(withDuration: 0.25) { [weak self] in

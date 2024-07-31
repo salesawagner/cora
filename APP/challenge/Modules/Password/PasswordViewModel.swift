@@ -43,6 +43,7 @@ extension PasswordViewModel: PasswordInputProtocol {
                 WASAPI.token = response.token
 
                 DispatchQueue.main.async { [weak self] in
+                    self?.viewController?.success()
                     self?.goToList()
                 }
             case .failure:

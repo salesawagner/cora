@@ -150,6 +150,13 @@ final class CPFViewController: WASViewController {
         ])
     }
 
+    // MARK: Internal Methods
+
+    @objc func didTapActionButton() {
+        guard let cpf = CPFTextField.text else { return }
+        viewModel.didTapActionButton(cpf: cpf)
+    }
+
     // MARK: Private Methods
 
     @objc private func keyboardWillChangeFrame(notification: NSNotification) {
@@ -175,12 +182,7 @@ final class CPFViewController: WASViewController {
         )
     }
 
-    @objc private func didTapActionButton() {
-        guard let cpf = CPFTextField.text else { return }
-        viewModel.didTapActionButton(cpf: cpf)
-    }
-
-    @objc func CPFChanged() {
+    @objc private func CPFChanged() {
         actionButton.isEnabled = !(CPFTextField.text?.isEmpty ?? true)
     }
 }

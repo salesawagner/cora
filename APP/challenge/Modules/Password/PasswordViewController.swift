@@ -124,7 +124,7 @@ final class PasswordViewController: WASViewController {
         configuration.cornerStyle = .medium
 
         actionButton.configuration = configuration
-        actionButton.isEnabled = false
+        actionButton.isEnabled = true
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.addTarget(self, action: #selector(didTapActionButton), for: .touchUpInside)
 
@@ -138,6 +138,13 @@ final class PasswordViewController: WASViewController {
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             bottomConstraint
         ])
+    }
+
+    // MARK: Internal Methods
+
+    @objc func didTapActionButton() {
+        guard let password = passwordTextField.text else { return }
+        viewModel.didTapActionButton(password: password)
     }
 
     // MARK: Private Methods
@@ -165,12 +172,7 @@ final class PasswordViewController: WASViewController {
         )
     }
 
-    @objc private func didTapActionButton() {
-        guard let password = passwordTextField.text else { return }
-        viewModel.didTapActionButton(password: password)
-    }
-
-    @objc func passwordChanged() {
+    @objc private func passwordChanged() {
         actionButton.isEnabled = !(passwordTextField.text?.isEmpty ?? true)
     }
 }
@@ -182,7 +184,13 @@ extension PasswordViewController: PasswordOutputProtocol {
         actionButton.configuration?.showsActivityIndicator = true
     }
 
+    func success() {
+        errorLabel.isHidden = false
+        actionButton.configuration?.showsActivityIndicator = false
+    }
+
     func failure() {
         errorLabel.isHidden = false
+        actionButton.configuration?.showsActivityIndicator = false
     }
 }

@@ -2,7 +2,7 @@
 //  ListViewModelSpy.swift
 //  challengeTests
 //
-//  Created by Wagner Sales on 30/01/24.
+//  Created by Wagner Sales
 //
 
 import XCTest
@@ -13,7 +13,7 @@ final class ListViewModelSpy: ListInputProtocol {
     let expectation: XCTestExpectation?
 
     var viewController: ListOutputProtocol?
-    var rows: [ListRows] = []
+    var sections: [ListSectionViewModel] = []
 
     init(expectation: XCTestExpectation? = nil) {
         self.expectation = expectation
@@ -35,14 +35,6 @@ final class ListViewModelSpy: ListInputProtocol {
         receivedMessages.append(.didTapReload)
     }
 
-    func didTapCancelSearch() {
-        receivedMessages.append(.didTapCancelSearch)
-    }
-
-    func didTapSearch(text: String?) {
-        receivedMessages.append(.didTapSearch)
-    }
-
     func pullToRefresh() {
         receivedMessages.append(.pullToRefresh)
     }
@@ -54,8 +46,6 @@ extension ListViewModelSpy {
         case requestList
         case didSelecteRow
         case didTapReload
-        case didTapCancelSearch
-        case didTapSearch
         case pullToRefresh
     }
 }

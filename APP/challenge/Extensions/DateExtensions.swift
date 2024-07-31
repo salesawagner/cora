@@ -46,4 +46,28 @@ extension String {
             return formattedDate
         }
     }
+
+    var fullDatetoDateFormatted: String? {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+
+        guard let date = inputFormatter.date(from: self) else {
+            return nil
+        }
+
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "d 'de' MMMM"
+        outputFormatter.locale = Locale(identifier: "pt_BR")
+        let formattedDate = outputFormatter.string(from: date)
+
+        let todayFormatter = DateFormatter()
+        todayFormatter.dateFormat = "yyyy-MM-dd"
+        let todayString = todayFormatter.string(from: Date())
+
+        if self == todayString {
+            return "Hoje - \(formattedDate)"
+        } else {
+            return formattedDate
+        }
+    }
 }

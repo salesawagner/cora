@@ -45,17 +45,18 @@ final class ListViewModel {
             }
         }
     }
-
-    private func resetSearch() {
-        requestList()
-    }
 }
 
 // MARK: - ListInputProtocol
 
 extension ListViewModel: ListInputProtocol {
     func didSelectRow(indexPath: IndexPath) {
-        // TODO:
+        let id = sections[indexPath.section].rows[indexPath.row].id
+        let listViewController = DetailsViewController.create(with: DetailsViewModel(id: id))
+        (viewController as? UIViewController)?.navigationController?.pushViewController(
+            listViewController,
+            animated: true
+        )
     }
 
     func didTapReload() {
@@ -86,7 +87,7 @@ private extension ListResponse {
                     description: item.description
                 ))
             }
-            
+
             sections.append(.init(date: section.date.toDateFormatted ?? "", rows: rows))
         }
 

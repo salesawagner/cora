@@ -14,5 +14,6 @@ protocol PasswordInputProtocol: AnyObject {
 
 protocol PasswordOutputProtocol: AnyObject {
     func startLoading()
+    func success()
     func failure()
 }

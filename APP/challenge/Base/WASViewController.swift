@@ -22,7 +22,7 @@ class WASViewController: UIViewController {
     // MARK: Setups
 
     func setupUI() {
-        view.backgroundColor = UIColor.Base.background
+        view.backgroundColor = .white
         setupNavigationController()
         setupActivityIndicator()
     }

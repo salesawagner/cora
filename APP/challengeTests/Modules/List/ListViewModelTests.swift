@@ -2,7 +2,7 @@
 //  ListViewModelTests.swift
 //  challengeTests
 //
-//  Created by Wagner Sales on 30/01/24.
+//  Created by Wagner Sales
 //
 
 import XCTest
@@ -15,11 +15,13 @@ final class ListViewModelTests: XCTestCase {
         ListViewControllerSpy
     ) {
         let viewControllerSpy = ListViewControllerSpy(expectation: expectation)
-        let sut = ListViewModel(api: api, name: "Maria")
+        let sut = ListViewModel(api: api)
         sut.viewController = viewControllerSpy
 
         return (sut, viewControllerSpy)
     }
+
+    // MARK: Tests
 
     func test_viewDidLoad_success_shouldReceiveCorrectMessages() {
         let expectation = XCTestExpectation(description: "viewDidLoad_success")
@@ -29,7 +31,7 @@ final class ListViewModelTests: XCTestCase {
         let result = XCTWaiter.wait(for: [expectation], timeout: 1)
         switch result {
         case .completed:
-            XCTAssertEqual(viewControllerSpy.receivedMessages, [.setTitle, .startLoading, .success])
+            XCTAssertEqual(viewControllerSpy.receivedMessages, [.startLoading, .success])
         default:
             XCTFail("Delegate not called within timeout")
         }
@@ -39,7 +41,7 @@ final class ListViewModelTests: XCTestCase {
         let (sut, viewControllerSpy) = makeSUT(api: WASAPI(environment: Environment.local))
         sut.viewDidLoad()
 
-        XCTAssertEqual(viewControllerSpy.receivedMessages, [.setTitle, .startLoading])
+        XCTAssertEqual(viewControllerSpy.receivedMessages, [.startLoading])
     }
 
     func test_viewDidLoad_requestList_success_shouldReceiveCorrectMessages() {
