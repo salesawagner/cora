@@ -24,11 +24,25 @@ final class PasswordViewModel {
     // MARK: Private Methods
 
     private func goToList() {
+        startRepeatingRequest()
         let listViewController = ListViewController.create(with: ListViewModel())
         (viewController as? UIViewController)?.navigationController?.pushViewController(
             listViewController,
             animated: true
         )
+    }
+
+    private func startRepeatingRequest() {
+        Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { [weak self] _ in
+            guard let token = WASAPI.token else { return }
+
+            self?.api.send(RefreshTokenRequest(token: token)) { result in
+                switch result {
+                case .success(let response): WASAPI.token = response.token
+                case .failure: break
+                }
+            }
+        }
     }
 }
 

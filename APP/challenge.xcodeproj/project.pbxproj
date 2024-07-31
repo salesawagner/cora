@@ -59,6 +59,7 @@
 		A7A1EAAE2C5AA19500DB7718 /* PasswordViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1EAAD2C5AA19500DB7718 /* PasswordViewModelSpy.swift */; };
 		A7A1EAB02C5AA29200DB7718 /* PasswordViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1EAAF2C5AA29200DB7718 /* PasswordViewControllerTests.swift */; };
 		A7A1EAB22C5AA37200DB7718 /* PasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1EAB12C5AA37200DB7718 /* PasswordViewModelTests.swift */; };
+		A7A1EAB62C5AAD7E00DB7718 /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1EAB52C5AAD7E00DB7718 /* RefreshTokenRequest.swift */; };
 		A7AA7E522C595B94009DF9E7 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA7E512C595B94009DF9E7 /* DoubleExtensions.swift */; };
 		A9DE95317E7975A146C74387 /* ListViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1298227E5AC1212C56993F5E /* ListViewControllerSpy.swift */; };
 		C7418185A281AA5807AF3FF2 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512C7C54B5D9064C8891DE6 /* UIColorExtensions.swift */; };
@@ -137,6 +138,7 @@
 		A7A1EAAD2C5AA19500DB7718 /* PasswordViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModelSpy.swift; sourceTree = "<group>"; };
 		A7A1EAAF2C5AA29200DB7718 /* PasswordViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewControllerTests.swift; sourceTree = "<group>"; };
 		A7A1EAB12C5AA37200DB7718 /* PasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModelTests.swift; sourceTree = "<group>"; };
+		A7A1EAB52C5AAD7E00DB7718 /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
 		A7AA7E512C595B94009DF9E7 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		AB53C7C74B67B86F5DFE5F2F /* Pods-challengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challengeTests.debug.xcconfig"; path = "Target Support Files/Pods-challengeTests/Pods-challengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B05FC68FFF0CF66EAD8B2A6D /* WASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WASViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				A7628FA52C57C94D00659EE1 /* ListResponse.swift */,
 				A7A1EA8C2C5A3F7E00DB7718 /* DetailsResponse.swift */,
 				A7A1EA8E2C5A40A000DB7718 /* DetailsRequest.swift */,
+				A7A1EAB52C5AAD7E00DB7718 /* RefreshTokenRequest.swift */,
 			);
 			name = API;
 			path = ../../../digio/APP/challenge/API;
@@ -645,6 +648,7 @@
 				A7628F762C5704A400659EE1 /* PasswordProtocols.swift in Sources */,
 				CF436607E687B5DBACA9BE85 /* CPFViewModel.swift in Sources */,
 				A7628F9E2C57C7CE00659EE1 /* ListViewModel.swift in Sources */,
+				A7A1EAB62C5AAD7E00DB7718 /* RefreshTokenRequest.swift in Sources */,
 				A7628F9B2C57C7CE00659EE1 /* ListViewController.swift in Sources */,
 				4EC8243188811042E5C96757 /* Environment.swift in Sources */,
 				C7418185A281AA5807AF3FF2 /* UIColorExtensions.swift in Sources */,

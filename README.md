@@ -1,188 +1,40 @@
-<div align="center">
+# Quero ser Cora
 
-  <img src="https://user-images.githubusercontent.com/55195343/153007587-318033ab-05d7-402a-b2aa-2a1ec0f69717.png" width="100" height="100">
+Fala reviwer, tudo bem? Aqui está o projeto para o desafio. Para setup e gerenciamento do projeto eu utilizei algumas ferramentas como o `XcodeGen`, `Cocopods` e `Swiftlint` para facilitar no desenvolvimento, evitar conflitos e código mais limpo(lint). Optei por não colocar os arquivos de projeto(`.xcworkspace`, `.xcodeproj` etc...) e pods no `.gitignore` propositalmente para facilitar a execução dos projetos pra vcs. ;) 
 
-# Desafio iOS
+Se houver alguma dificuldade para executor os projetos, na guia **START** tem o passo a passo de como fazer o setup dos projetos. 
 
- </div>
- 
- > Para participar, basta criar um fork deste repositório e quando finalizar o desenvolvimento, abrir um merge request que iremos avaliar.
+![Swift](https://img.shields.io/badge/Swift-5.0-orange)
+![Platforms](https://img.shields.io/badge/Platforms-iOS-yellowgreen)
+![Xcode Version](https://img.shields.io/badge/Xcode-15.3-blue)
+![iOS Version](https://img.shields.io/badge/iOS-12.0-blue)
 
-O desafio consiste em implementar dois fluxos simples de tela, sendo um de autenticação e um de lista + detalhes.
+# Requerimentos
+- **XcodeGen** ([https://github.com/yonaskolb/XcodeGen](https://github.com/yonaskolb/XcodeGen))</br>
+Utilizei o XcodeGen para evitar conflitos com os arquivos `.xcodeproj`
 
-O layout pode ser acessado [aqui](https://www.figma.com/file/mfScPv5hxIqg25obhaHNNB/SR?type=design&node-id=0%3A1&mode=dev&t=aqdh9RprKrYpateD-1)
+- **Cocoapods** ([https://cocoapods.org](https://cocoapods.org))</br>
+Utilizado para gerenciamento de dependencias
 
-## Requisitos
-- View Code
-- Não utilizar libs externas
-- Teste unitário
+- **Swiftlint** ([https://github.com/realm/SwiftLint](https://github.com/realm/SwiftLint))
 
-### Aqui iremos avaliar:
-- Atenção aos casos de uso
-- Organização do projeto
-- Organização de código
-- Boas práticas de desenvolvimento
-- Definição da arquitetura e utilização de Design Patterns
-- Aplicação dos conceitos de SOLID
-- Conhecimento dos recursos nativos para estruturação de UI, acesso a dados (local e remoto) e concorrência
-
-### Bonus (opcional)
-- SwiftUI
-- XCUITest
-- Arquitetura modular
-- Documentação
-
-## Casos de uso
-### Login
-- No passo de CPF, habilitar o botão apenas se digitar um CPF válido
-- No passo de senha, habilitar o botão apenas se a senha tiver 6 dígitos
-
-No passo de senha, ao tocar no botão "Próximo", é preciso fazer a request:
+# Start
+### - API  
+Responsável pelas tratativas de request e response do APP: [API.xcworkspace](API/API.xcworkspace). Para fazer o setup basta ir na pasta [API](API/) e rodar os comandos no terminal:
 
 ```
-POST https://api.challenge.stage.cora.com.br/challenge/auth
--- header 'apikey: {{API_KEY}}'
-{
-  "cpf": "{{CPF}}",
-  "password": "{{SENHA}}"
-}
+$  xcodegen generate
+$  pod install
 ```
 
-Caso os dados estejam corretos, a request irá retornar:
+Abrir o arquivo: [API.xcworkspace](API/API.xcworkspace)
+
+### - APP  
+Responsável pela aplicação UI: [challange.xcworkspace](APP/challange.xcworkspace). Para fazer o setup basta ir na pasta [APP](APP/) e rodar os comandos no terminal:
 
 ```
-200 https://api.challenge.stage.cora.com.br/challenge/auth
-{
-    "token": "{{TOKEN}}"
-}
-```
-> Será necessário armazenar o token recebido para ser utilizado depois
-
-Caso os dados estejam incorretos, o retorno será:
-
-```
-401 https://api.challenge.stage.cora.com.br/challenge/auth
+$  xcodegen generate
+$  pod install
 ```
 
-### Token
-O Token possui uma validade de 1 minuto. Então a cada 1 minuto é necessário fazer a request de autenticação novamente, mas dessa vez enviando o token antigo:
-> Importante garantir uma boa gestão de concorrência para evitar que outra request seja feita enquanto o token estiver sendo atualizado.
-
-```
-POST https://api.challenge.stage.cora.com.br/challenge/auth
--- header 'apikey: {{API_KEY}}'
-{
-  "token": "{{TOKEN}}"
-}
-```
-
-Caso o token seja validado corretamente, a request irá retornar um novo token:
-
-```
-200 https://api.challenge.stage.cora.com.br/challenge/auth
-{
-    "token": "{{TOKEN}}"
-}
-```
-
-Caso o token não seja validado, o retorno será:
-
-```
-401 https://api.challenge.stage.cora.com.br/challenge/auth
-```
-
-### Lista
-- Deverá exibir um placeholder enquanto a request estiver sendo feita
-- Deverá implementar um *pull to refresh*
-
-Pra trazer os dados da lista, será necessário fazer a request:
-
-```
-GET https://api.challenge.stage.cora.com.br/challenge/list
--- header 'apikey: {{API_KEY}}'
--- header 'token: {{TOKEN}}'
-```
-Caso seja um token válido, a request irá retornar:
-
-```
-200 https://api.challenge.stage.cora.com.br/challenge/list
-{
-  "results": [
-    {
-      "items": [
-        {
-          "id": "abc123def456ghi789",
-          "description": "Compra de produtos eletrônicos",
-          "label": "Compra aprovada",
-          "entry": "DEBIT",
-          "amount": 150000,
-          "name": "João da Silva",
-          "dateEvent": "2024-02-01T08:15:17Z",
-          "status": "COMPLETED"
-        }
-      ],
-      "date": "2024-02-01"
-    }
-  ],
-  "itemsTotal": 1
-}
-```
-Caso o token não seja válido, o retorno será: 
-
-```
-401 https://api.challenge.stage.cora.com.br/challenge/list
-```
-
-### Detalhes
-- Deverá exibir um placeholder enquanto a request estiver sendo feita
-
-Pra trazer os detalhes de um item, será necessário fazer a request:
-
-```
-GET https://api.challenge.stage.cora.com.br/challenge/details/:id
--- header 'apikey: {{API_KEY}}'
--- header 'token: {{TOKEN}}'
-```
-
-Caso seja um token válido, a request irá retornar:
-
-```
-200 https://api.challenge.stage.cora.com.br/challenge/details/:id
-{
-  "description": "Pagamento por serviços prestados",
-  "label": "Pagamento recebido",
-  "amount": 150000,
-  "counterPartyName": "Empresa ABC LTDA",
-  "id": "abcdef12-3456-7890-abcd-ef1234567890",
-  "dateEvent": "2024-02-05T14:30:45Z",
-  "recipient": {
-    "bankName": "Banco XYZ",
-    "bankNumber": "001",
-    "documentNumber": "11223344000155",
-    "documentType": "CNPJ",
-    "accountNumberDigit": "9",
-    "agencyNumberDigit": "7",
-    "agencyNumber": "1234",
-    "name": "Empresa ABC LTDA",
-    "accountNumber": "987654"
-  },
-  "sender": {
-    "bankName": "Banco ABC",
-    "bankNumber": "002",
-    "documentNumber": "99887766000112",
-    "documentType": "CNPJ",
-    "accountNumberDigit": "3",
-    "agencyNumberDigit": "1",
-    "agencyNumber": "5678",
-    "name": "Empresa XYZ LTDA",
-    "accountNumber": "543210"
-  },
-  "status": "COMPLETED"
-}
-```
-
-Caso o token não seja válido, o retorno será: 
-
-```
-401 https://api.challenge.stage.cora.com.br/challenge/details/:id
-```
+Abrir o arquivo: [challenge.xcworkspace](APP/challenge.xcworkspace)
