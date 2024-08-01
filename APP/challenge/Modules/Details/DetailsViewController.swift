@@ -46,6 +46,7 @@ final class DetailsViewController: WASViewController {
         title = "Detalhes da transferência"
         setupRefreshControl()
         setupTableView()
+        addBackButton()
     }
 
     func setupTableView() {

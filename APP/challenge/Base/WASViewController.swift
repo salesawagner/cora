@@ -46,4 +46,17 @@ class WASViewController: UIViewController {
         activityIndicator.stopAnimating()
         view.addSubview(activityIndicator)
     }
+
+    func addBackButton() {
+        let backButton = UIButton(type: .custom)
+        let backImage = UIImage(named: "ic_chevron-left")
+        backButton.setImage(backImage, for: .normal)
+        backButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
 }

@@ -54,12 +54,6 @@ final class PasswordViewController: WASViewController {
         passwordTextField.becomeFirstResponder()
     }
 
-    override func setupNavigationController() {
-        super.setupNavigationController()
-        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                self.navigationItem.backBarButtonItem = backButton
-    }
-
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -72,6 +66,7 @@ final class PasswordViewController: WASViewController {
         setupErrorLabel()
         setupStackView()
         setupActionButton()
+        addBackButton()
     }
 
     // MARK: Setups
