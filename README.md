@@ -6,8 +6,8 @@ Se houver alguma dificuldade para executor os projetos, na guia **START** tem o 
 
 ![Swift](https://img.shields.io/badge/Swift-5.0-orange)
 ![Platforms](https://img.shields.io/badge/Platforms-iOS-yellowgreen)
-![Xcode Version](https://img.shields.io/badge/Xcode-15.3-blue)
-![iOS Version](https://img.shields.io/badge/iOS-12.0-blue)
+![Xcode Version](https://img.shields.io/badge/Xcode-15.2-blue)
+![iOS Version](https://img.shields.io/badge/iOS-15.0-blue)
 
 # Requerimentos
 - **XcodeGen** ([https://github.com/yonaskolb/XcodeGen](https://github.com/yonaskolb/XcodeGen))</br>
