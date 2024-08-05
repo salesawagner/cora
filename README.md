@@ -38,3 +38,7 @@ $  pod install
 ```
 
 Abrir o arquivo: [challenge.xcworkspace](APP/challenge.xcworkspace)
+
+### - LOGIN
+CPF: **047.776.254-94** <br>
+SENHA: **{{QUALQUER 6 digitos}}**
